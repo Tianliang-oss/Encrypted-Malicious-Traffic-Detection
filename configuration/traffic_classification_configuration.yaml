@@ -1,0 +1,69 @@
+preprocess:
+  traffic_path: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\CICIDS # Malicious_d # traffic_path\android # 原始pcap的路径
+  packet_num: 4 # 负载特征参数：流的前4包的负载
+  byte_num: 256 # 负载特征参数：每个包的前256个字节
+  ip_length: 128 # 包长特征参数：提取流前128个包长序列
+  threshold: 4 # 阈值：流包长小于4时舍弃
+  train_size: 0.8 # 训练集所占比例
+  valid_size: 0.2 # 验证集所占比例
+  flowcontainer:
+    datasets: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\datasets\flowcontainer\android # Mali（恶意流量二分类） #android（app分类）  预处理后npy文件的路径
+  splitCap_1:
+    datasets: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\datasets\splitCap1\CICIDS # android # Mali（恶意流量二分类） #android（app分类） # 预处理后npy文件的路径
+    work_flow_path: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\pcap_flow_dir\CICIDS #android #M_pcap_flow_dir（恶意流量二分类） #pcap_flow_dir\android(app分类)
+    splitCap_exe_path: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\tool\SplitCap.exe # splitCap的路径
+
+#train:
+#  train_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/train/pay_load.npy
+#  # train_seq: ../npy_data/test/test/ip_length.npy
+#  train_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/train/ip_length.npy
+#  train_sta: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/train/statistic.npy
+#  train_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/train/label.npy
+#  test_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/test/pay_load.npy
+#  test_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/test/ip_length.npy
+#  test_sta: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/test/statistic.npy
+#  test_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/test/label.npy
+#  valid_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/valid/pay_load.npy
+#  valid_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/valid/ip_length.npy
+#  valid_sta: None
+#  valid_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/android/valid/label.npy
+#
+#  BATCH_SIZE: 64
+#  epochs: 60 # 训练的轮数
+#  lr: 0.001
+#  # learning rate
+#  model_dir: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\models # 模型保存的文件夹
+#  # model_name: cnn1d.pth # 模型的名称
+#  model_name: app_net.pth # 模型的名称
+#
+#
+
+train:
+  train_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/train/pay_load.npy
+  # train_seq: ../npy_data/test/test/ip_length.npy
+  train_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/train/ip_length.npy
+  train_sta: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/train/statistic.npy
+  train_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/train/label.npy
+  test_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/test/pay_load.npy
+  test_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/test/ip_length.npy
+  test_sta: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/test/statistic.npy
+  test_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/test/label.npy
+  valid_pay: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/valid/pay_load.npy
+  valid_seq: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/valid/ip_length.npy
+  valid_sta: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/valid/statistic.npy
+  valid_label: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/datasets/splitCap1/CICIDS/valid/label.npy
+
+  BATCH_SIZE: 64
+  epochs: 60 # 训练的轮数
+  lr: 0.001
+  # learning rate
+  model_dir: E:\pythonProject\TrafficClassificationPandemonium-neww\TrafficClassificationPandemonium-main\models # 模型保存的文件夹
+  # model_name: cnn1d.pth # 模型的名称
+  model_name: app_net.pth # 模型的名称
+
+
+test:
+  evaluate: False # 如果是 True, 则不进行训练, 只进行评测
+  pretrained: False # 是否有训练好的模型# # # {'Chat': 0, 'Email': 1, 'FT': 2, 'P2P': 3, 'Streaming': 4, 'VoIP': 5, 'VPN_Chat': 6, 'VPN_Email': 7, 'VPN_FT': 8, 'VPN_P2P': 9, 'VPN_Streaming': 10, 'VPN_VoIP': 11}
+  label2index: {"malicious": 0, "normal": 1} #{'email': 0, 'facebook': 1, 'ftps': 2, 'netflix4': 3, 'qq': 4, 'scp': 5, 'sftp': 6, 'skype': 7, 'taobao': 8, 'vimeo': 9, 'voip': 10, 'weixin': 11, 'youtubu': 12} #{"Malicious": 0, "normal": 1}#{'Aim' : 0, 1: 'email', 2: 'facebook', 3: 'ftps', 4: 'hangout', 5: 'icq', 6: 'netflix4', 7: 'qq', 8: 'scp', 9: 'sftp', 10: 'skype', 11: 'spotify', 12: 'taobao', 13: 'vimeo', 14: 'voip', 15: 'weixin', 16: 'youtubu'}#{'qq': 0, '微信': 1}
+  confusion_path: E:/pythonProject/TrafficClassificationPandemonium-neww/TrafficClassificationPandemonium-main/result/confusion/ConfusionMatrix-app-net.png
